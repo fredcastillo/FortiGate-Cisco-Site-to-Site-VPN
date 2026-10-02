@@ -1,4 +1,9 @@
+Hostname: Router-ISP
+Usuario: admin
+Contraseña: TU_PASSWORD
+Enable secret: TU_ENABLE_PASSWORD
 
+--------------------------------
 Router-ISP#show running-config
 Building configuration...
 
