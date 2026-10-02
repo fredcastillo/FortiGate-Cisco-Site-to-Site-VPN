@@ -1,0 +1,46 @@
+FortiGate-B — relevant final configuration
+
+STATUS OF THIS FILE:
+This file contains the final/relevant parameters established and verified during
+Infrastructure 2. It is intentionally not presented as a full `show full-configuration`.
+The FortiGate configuration was performed through the GUI; this file is a technical
+record of the relevant resulting values.
+
+INTERFACES
+- port1: 203.0.113.26/30
+- port2: 10.21.75.129/28
+- VPN interface: VPN-TO-SITE-A
+
+IPSEC PHASE 1
+- Name: VPN-TO-SITE-A
+- Interface: port1
+- IKE Version: 2
+- Remote Gateway: 203.0.113.21
+- Proposal: DES-SHA256
+- DH Group: 14
+- Authentication: Pre-shared Key
+
+IPSEC PHASE 2
+- Name: VPN-TO-SITE-A
+- Local selector: 10.21.75.128/28
+- Remote selector: 10.21.75.0/25
+- Proposal: DES-SHA256
+- PFS: Enabled
+- PFS DH Group: 14
+
+ROUTING
+- Default: 0.0.0.0/0 via 203.0.113.25, port1
+- Remote LAN: 10.21.75.0/25 via VPN-TO-SITE-A, with the gateway value retained from the lab implementation
+
+ADDRESS OBJECTS
+- LAN_USUARIOS: 10.21.75.0/25
+- LAN_SERVIDOR: 10.21.75.128/28
+
+FIREWALL POLICIES
+- LAN -> VPN: port2 -> VPN-TO-SITE-A; LAN_SERVIDOR -> LAN_USUARIOS; NAT disabled
+- VPN -> LAN: VPN-TO-SITE-A -> port2; LAN_USUARIOS -> LAN_SERVIDOR; NAT disabled
+- WEBSERVER_A_INTERNET: port2 -> port1; destination all; service all; NAT enabled
+
+NOTES
+- Real PSK intentionally omitted.
+- Configuration method for FortiGate services/security: GUI.

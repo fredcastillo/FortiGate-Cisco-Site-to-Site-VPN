@@ -1,0 +1,83 @@
+# Cisco 7200 — commands used during Infrastructure 2
+# IMPORTANT: The real PSK is redacted here. Keep credentials outside GitHub.
+
+enable
+configure terminal
+hostname R1-CISCO-VPN
+
+interface GigabitEthernet1/0
+description WAN-to-ISP
+ip address 203.0.113.21 255.255.255.252
+ip nat outside
+no shutdown
+exit
+
+interface GigabitEthernet2/0
+description LAN-USERS-VLAN10
+ip address 10.21.75.1 255.255.255.128
+ip nat inside
+no shutdown
+exit
+
+ip dhcp excluded-address 10.21.75.1 10.21.75.9
+ip dhcp excluded-address 10.21.75.101 10.21.75.126
+ip dhcp pool VLAN10-USERS
+ network 10.21.75.0 255.255.255.128
+ default-router 10.21.75.1
+ dns-server 8.8.8.8
+ exit
+
+ip access-list extended NAT-USERS
+ deny ip 10.21.75.0 0.0.0.127 10.21.75.128 0.0.0.15
+ permit ip 10.21.75.0 0.0.0.127 any
+ exit
+ip nat inside source list NAT-USERS interface GigabitEthernet1/0 overload
+
+ip route 0.0.0.0 0.0.0.0 203.0.113.22
+
+crypto ikev2 proposal FGT-IKEV2-PROPOSAL
+ encryption des
+ integrity sha256
+ group 14
+ exit
+
+crypto ikev2 policy FGT-IKEV2-POLICY
+ proposal FGT-IKEV2-PROPOSAL
+ exit
+
+crypto ikev2 keyring FGT-KEYRING
+ peer FORTIGATE-B
+  address 203.0.113.26
+  pre-shared-key local [REDACTED]
+  pre-shared-key remote [REDACTED]
+ exit
+exit
+
+crypto ikev2 profile FGT-IKEV2-PROFILE
+ match identity remote address 203.0.113.26 255.255.255.255
+ authentication local pre-share
+ authentication remote pre-share
+ keyring local FGT-KEYRING
+ exit
+
+crypto ipsec transform-set FGT-IPSEC-SET esp-des esp-sha256-hmac
+ mode tunnel
+ exit
+
+ip access-list extended VPN-TRAFFIC
+ permit ip 10.21.75.0 0.0.0.127 10.21.75.128 0.0.0.15
+ exit
+
+crypto map FGT-VPN-MAP 10 ipsec-isakmp
+ set peer 203.0.113.26
+ set transform-set FGT-IPSEC-SET
+ set ikev2-profile FGT-IKEV2-PROFILE
+ set pfs group14
+ match address VPN-TRAFFIC
+ exit
+
+interface GigabitEthernet1/0
+ crypto map FGT-VPN-MAP
+ exit
+
+end

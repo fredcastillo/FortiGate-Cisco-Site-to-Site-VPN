@@ -1,0 +1,24 @@
+# Cisco 7200
+show version
+show ip interface brief
+show ip route
+show access-lists NAT-USERS
+show run | include ip nat
+show ip nat translations
+show ip dhcp pool
+show ip dhcp binding
+show crypto ikev2 proposal
+show crypto ikev2 policy
+show crypto ikev2 profile
+show crypto ipsec transform-set
+show crypto map
+show crypto ikev2 sa
+show crypto ipsec sa
+
+# Router-ISP
+show running-config
+show ip interface brief
+show ip route
+
+# Switch-A
+show running-config
