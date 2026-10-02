@@ -35,6 +35,157 @@ FIREWALL POLICIES
 - VPN -> LAN: VPN-TO-SITE-A -> port2; LAN_USUARIOS -> LAN_SERVIDOR; NAT disabled
 - WEBSERVER_A_INTERNET: port2 -> port1; destination all; service all; NAT enabled
 
+! =========================================================
+! FortiGate-B - Configuración relevante del laboratorio
+! FortiOS 7.0.9
+! VPN Site-to-Site IPsec con Cisco 7200
+! =========================================================
+
+! ---------------------------------------------------------
+! INTERFACES
+! ---------------------------------------------------------
+
+config system interface
+    edit "port1"
+        set vdom "root"
+        set ip 203.0.113.26 255.255.255.252
+        set allowaccess ping
+        set type physical
+        set snmp-index 1
+    next
+
+    edit "port2"
+        set vdom "root"
+        set ip 10.21.75.129 255.255.255.240
+        set allowaccess ping https http
+        set type physical
+        set snmp-index 2
+    next
+
+    edit "port5"
+        set vdom "root"
+        set ip 20.21.75.1 255.255.255.0
+        set allowaccess ping https http
+        set type physical
+        set alias "PORT_FOR_CONFIG"
+        set snmp-index 5
+    next
+
+    edit "VPN-TO-SITE-A"
+        set vdom "root"
+        set type tunnel
+        set snmp-index 15
+        set interface "port1"
+    next
+end
+
+
+! ---------------------------------------------------------
+! ROUTING
+! ---------------------------------------------------------
+
+config router static
+    edit 1
+        set gateway 203.0.113.25
+        set device "port1"
+    next
+
+    edit 2
+        set dst 10.21.75.0 255.255.255.128
+        set device "VPN-TO-SITE-A"
+    next
+end
+
+
+! ---------------------------------------------------------
+! FIREWALL ADDRESS OBJECTS
+! ---------------------------------------------------------
+
+config firewall address
+    edit "LAN_USUARIOS"
+        set associated-interface "VPN-TO-SITE-A"
+        set subnet 10.21.75.0 255.255.255.128
+    next
+
+    edit "LAN_SERVIDOR"
+        set associated-interface "port2"
+        set subnet 10.21.75.128 255.255.255.240
+    next
+end
+
+
+! ---------------------------------------------------------
+! FIREWALL POLICIES
+! ---------------------------------------------------------
+
+config firewall policy
+    edit 1
+        set name "LAN -> VPN"
+        set srcintf "port2"
+        set dstintf "VPN-TO-SITE-A"
+        set action accept
+        set srcaddr "LAN_SERVIDOR"
+        set dstaddr "LAN_USUARIOS"
+        set schedule "always"
+        set service "ALL"
+    next
+
+    edit 2
+        set name "VPN -> LAN"
+        set srcintf "VPN-TO-SITE-A"
+        set dstintf "port2"
+        set action accept
+        set srcaddr "LAN_USUARIOS"
+        set dstaddr "LAN_SERVIDOR"
+        set schedule "always"
+        set service "ALL"
+    next
+
+    edit 3
+        set name "WEBSERVER_A_INTERNET"
+        set srcintf "port2"
+        set dstintf "port1"
+        set action accept
+        set srcaddr "LAN_SERVIDOR"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set nat enable
+    next
+end
+
+
+! ---------------------------------------------------------
+! IPSEC PHASE 1
+! ---------------------------------------------------------
+
+config vpn ipsec phase1-interface
+    edit "VPN-TO-SITE-A"
+        set interface "port1"
+        set ike-version 2
+        set peertype any
+        set net-device disable
+        set proposal des-sha256
+        set dhgrp 14
+        set remote-gw 203.0.113.21
+        set psksecret [OMITIDO]
+    next
+end
+
+
+! ---------------------------------------------------------
+! IPSEC PHASE 2
+! ---------------------------------------------------------
+
+config vpn ipsec phase2-interface
+    edit "VPN-TO-SITE-A"
+        set phase1name "VPN-TO-SITE-A"
+        set proposal des-sha256
+        set dhgrp 14
+        set src-subnet 10.21.75.128 255.255.255.240
+        set dst-subnet 10.21.75.0 255.255.255.128
+    next
+end
+
 NOTES
-- Real PSK intentionally omitted.
 - Configuration method for FortiGate services/security: GUI.
