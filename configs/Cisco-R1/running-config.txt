@@ -1,5 +1,11 @@
-Cisco 7200 — R1-CISCO-VPN
+Cisco 7200 
 
+hostname R1-CISCO-VPN
+enable secret TU_ENABLE_PASSWORD
+Usuario: admin  
+Contraseña: TU_PASSWORD
+
+--------------------------------
 
 R1-CISCO-VPN#show running-config
 Building configuration...
