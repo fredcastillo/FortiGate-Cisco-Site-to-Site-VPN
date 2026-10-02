@@ -1,7 +1,10 @@
+
 Router-ISP#show running-config
 Building configuration...
 
-Current configuration : 1365 bytes
+Current configuration : 1560 bytes
+!
+! Last configuration change at 04:25:32 UTC Fri Oct 2 2026
 !
 version 15.2
 service timestamps debug datetime msec
@@ -12,13 +15,45 @@ hostname Router-ISP
 boot-start-marker
 boot-end-marker
 !
+!
+enable secret 5 $1$Q2WL$c/MLcFn3jF.k83xsAoQgn0
+!
 no aaa new-model
 no ip icmp rate-limit unreachable
+!
+!
+!
+!
+!
+!
 no ip domain lookup
 ip cef
 no ipv6 cef
+!
+!
 multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+username admin privilege 15 secret 5 $1$18fE$KwATabmFy/KYAITlIIpmY/
+!
+!
+!
+!
+!
 ip tcp synwait-time 5
+!
+!
+!
+!
+!
+!
+!
+!
 !
 interface FastEthernet0/0
  no ip address
@@ -71,15 +106,21 @@ interface FastEthernet5/1
 !
 ip forward-protocol nd
 !
+!
 no ip http server
 no ip http secure-server
 !
+!
+!
+!
 control-plane
+!
 !
 line con 0
  exec-timeout 0 0
  privilege level 15
  logging synchronous
+ login local
  stopbits 1
 line aux 0
  exec-timeout 0 0
@@ -87,6 +128,8 @@ line aux 0
  logging synchronous
  stopbits 1
 line vty 0 4
- login
+ login local
+!
 !
 end
+
