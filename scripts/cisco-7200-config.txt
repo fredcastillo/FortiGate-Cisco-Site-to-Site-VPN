@@ -1,5 +1,4 @@
-# Cisco 7200 — commands used during Infrastructure 2
-# IMPORTANT: The real PSK is redacted here. Keep credentials outside GitHub.
+# Cisco 7200 
 
 enable
 configure terminal
