@@ -1,11 +1,5 @@
 FortiGate-B — relevant final configuration
 
-STATUS OF THIS FILE:
-This file contains the final/relevant parameters established and verified during
-Infrastructure 2. It is intentionally not presented as a full `show full-configuration`.
-The FortiGate configuration was performed through the GUI; this file is a technical
-record of the relevant resulting values.
-
 INTERFACES
 - port1: 203.0.113.26/30
 - port2: 10.21.75.129/28
