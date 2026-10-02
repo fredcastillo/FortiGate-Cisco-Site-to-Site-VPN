@@ -1,6 +1,14 @@
-# 🔐 VPN Site-to-Site IPsec | Cisco 7200 y FortiGate
+<h1 align="center">🔐 VPN Site-to-Site IPsec — Cisco 7200 ↔ FortiGate</h1>
 
-> **Seguridad de Redes · GNS3 · FortiOS 7.0.9 · Cisco IOS 15.2(4)S6**
+<p align="center">
+  <a href="https://github.com/fredcastillo/vpn-site-to-site-ipsec"><img src="https://img.shields.io/badge/Laboratorio-GNS3-7d5fff?style=for-the-badge" alt="GNS3"></a>
+  <a href="https://github.com/fredcastillo/vpn-site-to-site-ipsec"><img src="https://img.shields.io/badge/Peer%201-Cisco%207200-1BA0D7?style=for-the-badge&logo=cisco&logoColor=white" alt="Cisco 7200"></a>
+  <a href="https://github.com/fredcastillo/vpn-site-to-site-ipsec"><img src="https://img.shields.io/badge/Peer%202-FortiGate-e11d48?style=for-the-badge" alt="FortiGate"></a>
+  <a href="https://github.com/fredcastillo/vpn-site-to-site-ipsec"><img src="https://img.shields.io/badge/VPN-IPsec%20IKEv2-9C27B0?style=for-the-badge" alt="IPsec IKEv2"></a>
+  <a href="https://github.com/fredcastillo/vpn-site-to-site-ipsec"><img src="https://img.shields.io/badge/Características-NAT%20%7C%20DHCP%20%7C%20VLAN%2010-FF6F00?style=for-the-badge" alt="Características"></a>
+  <a href="https://github.com/fredcastillo/vpn-site-to-site-ipsec"><img src="https://img.shields.io/badge/Estado-Completado-brightgreen?style=for-the-badge" alt="Estado"></a>
+</p>
+
 
 ## 🎥 VIDEO DEMOSTRATIVO
 
@@ -300,7 +308,7 @@ Al volver a habilitar la interfaz del túnel, la comunicación con el Web Server
 
 ## 📸 Evidencias mínimas
 
-No se requieren decenas de capturas. Este repositorio utiliza un conjunto reducido de evidencias fundamentales:
+evidencias fundamentales:
 
 | Archivo | Evidencia |
 |---|---|
@@ -315,8 +323,6 @@ No se requieren decenas de capturas. Este repositorio utiliza un conjunto reduci
 | `09-vpn-disabled-failure.png` | Comunicación bloqueada con VPN deshabilitada |
 | `10-vpn-restored.png` | Comunicación restaurada |
 
-Todos los documentos ya llaman a estos archivos. **Solo reemplaza cada PNG por la captura real usando exactamente el mismo nombre** y GitHub mostrará la imagen automáticamente sin editar los README.
-
 ---
 
 ## 📂 Running-Configs
@@ -325,8 +331,6 @@ Todos los documentos ya llaman a estos archivos. **Solo reemplaza cada PNG por l
 - [FortiGate-B — secciones relevantes verificadas](configs/FortiGate-B/running-config-relevant-final.txt)
 - [Router-ISP — running-config](configs/Router-ISP/running-config.txt)
 - [Switch-A — running-config](configs/Switch-A/running-config.txt)
-
-> El archivo del Cisco está explícitamente marcado como **reconstruido desde la sesión**, porque durante el laboratorio no se entregó un `show running-config` completo del R1. Para una entrega final más estricta, sustituirlo por el `show running-config` real del Cisco después de cerrar la práctica.
 
 ---
 
@@ -337,9 +341,6 @@ Todos los documentos ya llaman a estos archivos. **Solo reemplaza cada PNG por l
 - [Configuración GUI del FortiGate — checklist](scripts/fortigate-gui-checklist.md)
 
 La configuración funcional del FortiGate se realizó mediante GUI. No se presenta una recreación CLI como si hubiese sido el método de despliegue del FortiGate.
-
----
-
 
 ---
 
