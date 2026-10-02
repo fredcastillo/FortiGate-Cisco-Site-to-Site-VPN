@@ -1,24 +1,17 @@
-# 🔐 VPN Site-to-Site IPsec entre Cisco 7200 y FortiGate
+# 🔐 VPN Site-to-Site IPsec | Cisco 7200 y FortiGate
 
 > **Seguridad de Redes · GNS3 · FortiOS 7.0.9 · Cisco IOS 15.2(4)S6**
 
-## 🎥 VIDEO DEMOSTRATIVO — REQUISITO PRINCIPAL
+## 🎥 VIDEO DEMOSTRATIVO
 
 **▶ [Ver video en YouTube](video/VIDEO.md)**
 
-> Coloca aquí el enlace final del video en `video/VIDEO.md`. Esta sección se encuentra deliberadamente al principio del repositorio para cumplir el requisito de la asignación.
-
-**Estudiante:** Fred Sneyder Castillo Apolinar  
-**Matrícula:** 2025-2175  
-**Asignatura:** Seguridad de Redes  
-**Laboratorio:** VPN Site-to-Site IPsec Cisco 7200 ↔ FortiGate  
-**Entorno:** GNS3  
-**FortiOS:** 7.0.9  
-**Equipo de red:** Cisco 7200 / IOS 15.2(4)S6  
+> **Estudiante:** Fred Sneyder Castillo Apolinar | **Matrícula:** 2025-2175 | **Asignatura:** Seguridad de Redes |
+>             | **Laboratorio:** VPN Site-to-Site IPsec Cisco 7200 ↔ FortiGate |**Entorno:** GNS3 |
 
 ---
 
-## 🎯 Propósito del laboratorio
+## Propósito del laboratorio
 
 Este laboratorio implementa una comunicación segura entre una red de usuarios y una red de servidores mediante un enlace VPN Site-to-Site entre un **Cisco 7200** y un **FortiGate**.
 
@@ -32,7 +25,7 @@ La arquitectura utiliza un **Cisco 7200** como peer IPsec del **FortiGate-B**. E
 
 ---
 
-## 📌 Requisitos de la asignación cubiertos
+## Requisitos de la asignación cubiertos
 
 | Requisito | Implementación |
 |---|---|
@@ -58,7 +51,7 @@ La arquitectura utiliza un **Cisco 7200** como peer IPsec del **FortiGate-B**. E
 
 ---
 
-## 🗺️ Topología
+## Topología
 
 ### Captura real de GNS3
 
@@ -159,7 +152,7 @@ Web Server 10.21.75.130
 
 ---
 
-## 🧭 Routing
+## Routing
 
 ### Cisco 7200
 
@@ -241,7 +234,7 @@ El recurso remoto es un servidor Debian que ejecuta Apache para proporcionar el 
 
 ---
 
-## ✅ Validación funcional
+## Validación funcional
 
 ### 1. VPN activa
 
@@ -347,18 +340,16 @@ La configuración funcional del FortiGate se realizó mediante GUI. No se presen
 
 ---
 
-## 🎥 Video
-
-El guion completo y el espacio para el enlace final están en:
-
-[video/VIDEO.md](video/VIDEO.md)
-
-La demostración está diseñada para mantenerse por debajo del máximo de 10 minutos y centrarse en el objetivo de seguridad de la infraestructura.
 
 ---
 
-## 👤 Autor
+## 👨‍💻 Autor
 
-**Fred Sneyder Castillo Apolinar**  
-**Matrícula:** 2025-2175  
-**Asignatura:** Seguridad de Redes
+**Fred Castillo**  
+*Estudiante de Tecnólogo en Seguridad Informática*  
+*Aspirante a Red Team | Seguridad Ofensiva*
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Fred%20Castillo-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/fredcastillo11/)
+[![GitHub](https://img.shields.io/badge/GitHub-fredcastillo-100000?style=for-the-badge&logo=github)](https://github.com/fredcastillo)
+
+---
