@@ -12,7 +12,11 @@
 
 ## 🎥 VIDEO DEMOSTRATIVO
 
-**▶ [Ver video en YouTube](video/VIDEO.md)**
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=L-i-9bDIgqg">
+    <img src="https://www.youtube.com/watch?v=L-i-9bDIgqg/maxresdefault.jpg" alt="Ver video" width="700">
+  </a>
+</div>
 
 > **Estudiante:** Fred Sneyder Castillo Apolinar | **Matrícula:** 2025-2175 | **Asignatura:** Seguridad de Redes |
 >             | **Laboratorio:** VPN Site-to-Site IPsec Cisco 7200 ↔ FortiGate |**Entorno:** GNS3 |
