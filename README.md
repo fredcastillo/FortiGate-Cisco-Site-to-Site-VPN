@@ -9,6 +9,12 @@
   <a href="https://github.com/fredcastillo/vpn-site-to-site-ipsec"><img src="https://img.shields.io/badge/Estado-Completado-brightgreen?style=for-the-badge" alt="Estado"></a>
 </p>
 
+<div align="center">
+
+> **Estudiante:** Fred Sneyder Castillo Apolinar | **Matrícula:** 2025-2175 | **Asignatura:** Seguridad de Redes |
+> |**Entorno:** GNS3 |
+
+</div>
 
 ## 🎥 VIDEO DEMOSTRATIVO
 
@@ -17,9 +23,6 @@
     <img src="https://img.youtube.com/vi/L-i-9bDIgqg/hqdefault.jpg" alt="Ver video" width="700">
   </a>
 </div>
-
-> **Estudiante:** Fred Sneyder Castillo Apolinar | **Matrícula:** 2025-2175 | **Asignatura:** Seguridad de Redes |
->             | **Laboratorio:** VPN Site-to-Site IPsec Cisco 7200 ↔ FortiGate |**Entorno:** GNS3 |
 
 ---
 
