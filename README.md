@@ -1,4 +1,4 @@
-<h1 align="center">🔐 VPN Site-to-Site IPsec — Cisco 7200 ↔ FortiGate</h1>
+<h1 align="center">🔐 VPN Site-to-Site IPsec Cisco 7200 ↔ FortiGate</h1>
 
 <p align="center">
   <a href="https://github.com/fredcastillo/vpn-site-to-site-ipsec"><img src="https://img.shields.io/badge/Laboratorio-GNS3-7d5fff?style=for-the-badge" alt="GNS3"></a>
